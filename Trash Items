@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class TrashItem : MonoBehaviour
+{
+    public string trashType; // Set in the Unity Inspector
+
+    private void Start()
+    {
+        // Initialize trash item properties
+        // Randomly set the trash type
+        trashType = GetRandomTrashType();
+    }
+
+    private string GetRandomTrashType()
+    {
+        string[] trashTypes = { "Recyclable", "Compost", "Landfill" };
+        return trashTypes[Random.Range(0, trashTypes.Length)];
+    }
+}

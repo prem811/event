@@ -1,0 +1,22 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIManager : MonoBehaviour
+{
+    public Text scoreText;
+    public Text timerText;
+
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
+
+    private void Update()
+    {
+        // Update the UI elements with game state
+        scoreText.text = "Score: " + gameManager.score;
+        timerText.text = "Time Left: " + Mathf.RoundToInt(gameManager.timeLeft);
+    }
+}

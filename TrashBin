@@ -1,0 +1,21 @@
+using UnityEngine;
+
+public class TrashBin : MonoBehaviour
+{
+    public string binType; // Set in the Unity Inspector
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("TrashItem"))
+        {
+            TrashItem trashItem = other.GetComponent<TrashItem>();
+            if (trashItem != null && trashItem.trashType == binType)
+            {
+                // Correctly sorted trash item
+                // Increase the score
+                GameManager.Instance.score += 1;
+                Destroy(other.gameObject);
+            }
+        }
+    }
+}
